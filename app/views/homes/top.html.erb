@@ -1,0 +1,36 @@
+
+
+<script src="https://kit.fontawesome.com/1411ab0f97.js" crossorigin="anonymous"></script>
+
+<main>
+
+ <div class="container">
+  <div class="row">
+   <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+    <h1 class="px-3 mx-auto">welcome to<i class="fa-solid fa-book"></i>
+    <strong>Bookers !!</strong></h1>
+
+     <P>In
+      <i class="fas fa-book"></i>
+      <strong>Bookers,</strong>
+     </P>
+     <P>you can share and exchange  your opinions , inpressions , and emotions</P>
+     <P> about various books!</P>
+
+     <div class="btn-wrapper col-10 mx-auto">
+       <div class="row">
+          <%= link_to "Log in",new_user_session_path ,class: 'btn btn-info btn-sm btn-block mb-3 sign_in' %>
+
+
+       </div>
+       <div class="row">
+         <%= link_to "Sign up",new_user_registration_path ,class: 'btn btn-success btn-sm btn-block sign_up'  %>
+          
+ 
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+</main>

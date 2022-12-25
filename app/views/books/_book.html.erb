@@ -1,0 +1,53 @@
+
+
+<div class="container px-5 px-sm-0">
+       <% if book.errors.any? %>
+       <%= book.errors.count %>errors prohibited this obj from being saved:
+       <ul>
+      <% book.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+      <% end %>
+       </ul>
+     <% end %>
+  <div class="row">
+    <div class="col-md-3">
+    <h2>User info</h2>
+     <% if user.profile_image.attached? %>
+      <%= image_tag current_user.profile_image, size: "200x200" %>
+     <% else %>
+      <%= image_tag 'no_image', size: "200x200" %>
+     <% end %>
+
+   <table class="table">
+    <tbody>
+     <tr>
+      <th>name</th>
+      <th><%= current_user.name %></th>
+     </tr>
+     <tr>
+      <th>introduction</th>
+      <th><%= current_user.introduction %></th>
+     </tr>
+    </tbody>
+   </table>
+   <div class="row">
+    <%= link_to edit_user_path(user.id), class:"btn btn-outline-secondary btn-block" do %>
+    <i class="fas fa-user-cog"></i>
+    <% end %>
+   </div>
+
+      <h2 class="mt-3">New book</h2>
+   <%= form_with model: Book.new do |f| %>
+   <div class="form-group">
+    <h5>Title</h5>
+     <%= f.text_field :title %>
+   </div>
+   <div class="form-group">
+    <h5>Opinion</h5>
+     <%= f.text_area :body %>
+   </div>
+   <div class="form-group">
+     <%= f.submit 'Create Book' %>
+   </div>
+   <% end %>
+  </div>
