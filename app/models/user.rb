@@ -41,5 +41,19 @@ has_many :followers, through: :reverse_relationship, source: :follower
     def followed?(user)
       followeds.include?(user)
     end
-
+    
+    # 検索条件の分岐
+    def self.looks(search, word)
+      if search == "perfect_match"
+        @user = User.where("name LIKE?", "#{word}")
+      elsif search == "foward_match"
+        @user = User.where("name LIKE?", "#{word}%")
+      elsif search == "backward_match"
+        @user = User.where("name LIKE?", "%#{word}")
+      elsif search == "partial_match"
+        @user = User.where("name LIKE?", "%#{word}%")
+      else
+        @user = User.all
+      end
+    end
 end
