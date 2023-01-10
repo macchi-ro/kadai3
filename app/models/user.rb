@@ -42,7 +42,6 @@ has_many :followers, through: :reverse_relationship, source: :follower
       followeds.include?(user)
     end
     
-    # 検索条件の分岐
     def self.looks(search, word)
       if search == "perfect_match"
         @user = User.where("name LIKE?", "#{word}")

@@ -1,0 +1,8 @@
+      <div>
+       <% @book.comments.each do |post_comment| %>
+        <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
+        <%= link_to post_comment.user.name %>
+        <%= post_comment.comment %>
+        <%= link_to "destroy", book_comment_path(book.id, post_comment.id), method: :delete, remote: true %>
+       <% end %>
+      </div>

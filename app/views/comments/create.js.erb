@@ -1,0 +1,4 @@
+$(".area_comments").html("<%= j(render 'comments/post_comments', book: @book) %>");
+
+<!--入力後テキストを空白にする記述-->
+$("textarea").val('');
